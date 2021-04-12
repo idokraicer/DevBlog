@@ -6,7 +6,7 @@ async function Login() {
         html: '<div class="form-group">' +
             '<label class c-3 for="username">User Name</label>' +
             '<input class="form-control c-3" id="username" aria-describedby="userHelp" placeholder="Enter Username">' +
-            '<small id="userHelp" class="form-text text-muted">We`ll never share your email with anyone else.</small>' +
+            '<small id="userHelp" class="form-text text-muted">Do not share your account with anyone else.</small>' +
             '</div>' +
             '<div class="form-group">' +
             '<label for="password">Password</label>' +
@@ -102,12 +102,4 @@ function autoLogIn(un, pw, rm, type) {
 function logout() {
 
     window.location.replace('includes/logout.inc.php?back=' + window.location.pathname);
-}
-
-function nextPage() {
-
-}
-
-function prevPage() {
-
 }

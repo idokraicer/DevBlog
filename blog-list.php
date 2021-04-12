@@ -8,6 +8,7 @@
 				<?php include 'includes/getPosts.inc.php';
 				$Posts = postsArray();
 				$page = 0;
+				$invisible = "";
 				if(isset($_GET['page']))
 				{
 					if($_GET['page'] < 0)
@@ -22,6 +23,9 @@
 				} else $max = $page*10 +10;
 				if($page*10 > count($Posts)){
 					echo '<h1>No posts found!</h1>';
+				}
+				if($max == count($Posts)) {
+					$invisible = "invisible";
 				}
 				for($i = $page * 10; $i < $max; $i++) : ?>
 			    <div class="item mb-5">
@@ -39,8 +43,12 @@
 			    
 			    
 			    <nav class="blog-nav nav nav-justified my-5">
-				  <a class="nav-link-prev nav-item nav-link rounded-left" href="blog-list.php?page=<?=$GLOBALS['page']-1?>">Previous<i class="arrow-prev fas fa-long-arrow-alt-left"></i></a>
-				  <a class="nav-link-next nav-item nav-link rounded-right"  href="blog-list.php?page=<?php if($GLOBALS['page']*10 >= count($GLOBALS['Posts'])) { echo $GLOBALS['page']; } else { echo $GLOBALS['page']+1;}?>">Next<i class="arrow-next fas fa-long-arrow-alt-right" ></i></a>
+				<?php if($GLOBALS['page'] > 0) : ?>
+					<a class="nav-link-prev nav-item nav-link rounded-left" href="blog-list.php?page=<?=$GLOBALS['page']-1?>">Previous<i class="arrow-prev fas fa-long-arrow-alt-left"></i></a>
+				<?php endif ?>
+				<?php if($GLOBALS['max'] < count($GLOBALS['Posts'])) : ?>
+				  	<a class="nav-link-next nav-item nav-link rounded-right"  href="blog-list.php?page=<?=$GLOBALS['page']+1 ?>">Next<i class="arrow-next fas fa-long-arrow-alt-right" ></i></a>
+				<?php endif ?>
 				</nav>
 				
 		    </div>
