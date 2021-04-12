@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Blog Template">
     <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
-    <link rel="shortcut icon" href="favicon.ico"> 
+    <link rel="shortcut icon" href="favicon.ico?" type="image/x-icon"> 
     <script src="assets/js/functions.js" ></script>
     <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
     <script defer src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -84,8 +84,8 @@
 					<?php endif?>
 				</ul>
 				
-				<div class="my-2 my-md-3">
-				    <a class="btn btn-primary" href="newPost.php" target="_blank">Upload a new post!</a>
+				<div class="my-2 my-md-3 mx-auto my-auto d-inline-block">
+				    <button type="button" class="btn btn-primary btn-lg h-100" onclick=<?php echo isset($_SESSION['login']) ? '"window.location.href=`newPost.php`" target="_blank">Upload a new post!' : '"window.location.href=`#`" >Connect to upload a new post!';?></button>
 				</div>
 			</div>
 		</nav>

@@ -38,7 +38,7 @@
 					    <a href="blog-post.php?id=<?= $i ?>"><img class="mr-3 img-fluid post-thumb d-none d-md-flex" src=<?php echo "'https://picsum.photos/300?random=".$i."'"; ?> alt="image"></a>
 					    <div class="media-body">
 						    <h3 class="title mb-1"><a href="blog-post.php?id=<?= $i ?>"><?= $Posts[$i]['title'];?></a></h3>
-						    <div class="meta mb-1"><span class="date">Published <?php echo humanTiming(strtotime($Posts[$i]['date'])).' ago'; ?></span><span class="time">5 min read</span><span class="comment"><a href="#">4 comments</a></span></div>
+						    <div class="meta mb-1"><span class="date">Published <?php echo humanTiming(strtotime($Posts[$i]['date'])).' ago by ' .$Posts[$i]["username"]; ?></span><span class="time">5 min read</span><span class="comment"><a href="#">4 comments</a></span></div>
 						    <div class="intro h-50  d-inline-block" ><p><?= strip_tags(html_entity_decode($Posts[$i]['content']));?></p></div>
 
 						    <a class="more-link" href="blog-post.php?id=<?= $i ?>">Read more &rarr;</a>
