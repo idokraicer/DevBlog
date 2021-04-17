@@ -3,7 +3,7 @@ include_once 'dbh.inc.php';
 
 function postsArray() {
         
-        $sql = "SELECT * FROM posts ORDER BY id DESC;";
+        $sql = "SELECT * FROM posts;";
         //Create a prepared statement
         $stmt = mysqli_stmt_init($GLOBALS['conn']);
         

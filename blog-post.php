@@ -10,7 +10,7 @@
 		    <div class="container">
 			    <header class="blog-post-header">
 				    <h2 class="title mb-2"><?= $GLOBALS['Post']['title']?></h2>
-				    <div class="meta mb-3"><span class="date">Published <?php echo humanTiming(strtotime($Post['date'])).' ago'; ?></span><span class="time">5 min read</span><span class="comment"><a href="#">0 comments</a></span></div>
+				    <div class="meta mb-3"><span class="date">Published <?php echo humanTiming(strtotime($Post['date'])).' ago by '.$Post['username']; ?></span><span class="time">5 min read</span><span class="comment"><a href="#">0 comments</a></span></div>
 			    </header>
 			    
 			    <div class="blog-post-body">

@@ -2,11 +2,11 @@
     
 	<?php include 'header.php'; ?>
     
-    <div class="main-wrapper">
+    <div id="main-wrapper" class="main-wrapper">
 	    	    
 	    <article class="about-section py-5">
 		    <div class="container">
-			    <h2 class="title mb-3">About Me</h2>
+			    <h2 class="title mb-3 ">About Me</h2>
 			    
 				<p>
 					לורם איפסום דולור סיט אמט, גולר מונפרר סוברט לורם שבצק יהול, לכנוץ בעריר גק ליץ, הועניב היושבב שערש שמחויט - שלושע ותלברו חשלו שעותלשך וחאית נובש ערששף. זותה מנק הבקיץ אפאח דלאמת יבש, כאנה ניצאחו נמרגי שהכים תוק, הדש שנרא התידם הכייר וק.
@@ -33,7 +33,7 @@
 		    </div>
 	    </article><!--//about-section-->
 	    
-	    <section class="cta-section theme-bg-light py-5">
+	    <section class="cta-section  py-5">
 		    <div class="container text-center">
 			    <h2 class="heading">Newsletter</h2>
 			    <div class="intro">Welcome to my blog. Subscribe and get my latest blog post in your inbox.</div>

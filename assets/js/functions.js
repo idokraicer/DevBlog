@@ -2,21 +2,21 @@ async function Login() {
 
 
     const { value: formValues } = await Swal.fire({
-        title: 'Login',
-        html: '<div class="form-group">' +
-            '<label class c-3 for="username">User Name</label>' +
-            '<input class="form-control c-3" id="username" aria-describedby="userHelp" placeholder="Enter Username">' +
-            '<small id="userHelp" class="form-text text-muted">Do not share your account with anyone else.</small>' +
+        title: '<div class= "text-white">Login</div>',
+        html: '<div class="form-group row align-items-center text-white">' +
+            '<label class="col-sm-4 pt-0" for="username">User Name</label>' +
+            '<input class="form-control col-sm-8" id="username" aria-describedby="userHelp" placeholder="Enter Username">' +
             '</div>' +
-            '<div class="form-group">' +
-            '<label for="password">Password</label>' +
-            '<input type="password" class="form-control" id="password" placeholder="Password">' +
+            '<div class="form-group row align-items-center text-white">' +
+            '<label class="col-sm-4 center" for="password">Password</label>' +
+            '<input type="password" class="form-control col-sm-8" id="password" placeholder="Password">' +
             '</div>' +
-            '<div class="form-check form-switch">' +
+            '<div class="form-check form-switch text-white">' +
             '<input class="form-check-input" type="checkbox" id="RememberMe" checked>' +
             '<label class="form-check-label" for="RememberMe">Remember me</label>' +
             '</div>',
         focusConfirm: false,
+        background: '#111',
         preConfirm: () => {
             return [
                 document.getElementById('username').value,
@@ -38,14 +38,22 @@ async function Login() {
         } else autoLogIn(formValues[0], formValues[1], formValues[2], 'login');
     }
 }
+
 async function SignUp() {
 
 
     const { value: formValues } = await Swal.fire({
-        title: 'Sign Up',
-        html: '<input id="username" class="swal2-input" placeholder="Username">' +
-            '<input id="password" type="password" class="swal2-input" placeholder="Password">',
+        title: '<div class= "text-white">Sign Up</div>',
+        html: '<div class="form-group row align-items-center text-white">' +
+            '<label class="col-sm-4 pt-0" for="username">User Name</label>' +
+            '<input class="form-control col-sm-8" id="username" aria-describedby="userHelp" placeholder="Enter Username">' +
+            '</div>' +
+            '<div class="form-group row align-items-center text-white">' +
+            '<label class="col-sm-4 center" for="password">Password</label>' +
+            '<input type="password" class="form-control col-sm-8" id="password" placeholder="Password">' +
+            '</div>',
         focusConfirm: false,
+        background: '#111',
         preConfirm: () => {
             return [
                 document.getElementById('username').value,
