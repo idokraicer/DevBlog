@@ -22,9 +22,9 @@
 	<!-- FontAwesome JS-->
 	<script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
     <!-- Theme CSS -->  
-	<script src="./dark-mode-switch.min.js"></script>
-    <link id="theme-style" rel="stylesheet" href="assets/css/theme-1.css">
-	<link rel="stylesheet" href="dark-mode.css">
+	<script src="./assets/js/dark-mode-switch.js"></script>
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme-<?php echo !isset($_COOKIE['color']) ? '1' : $_COOKIE['color']; ?>.css">
+	<link rel="stylesheet" href="./assets/css/dark-mode.css">
 	
 	
 
@@ -32,8 +32,7 @@
 
 <body>
 <header class="header text-center ">
-	    <h1 class="blog-name pt-lg-4 mb-0"><a href="index.php">Ido's Blog</a></h1>
-        <br>
+	    <h1 class="blog-name pt-lg-4 mb-lg-3 mb-sm-0"><a href="index.php">Ido's Blog</a></h1>
 
 	    <nav class="navbar navbar-expand-lg navbar-dark " >
            
@@ -61,7 +60,7 @@
 					    <a class="nav-link" href="index.php"><i class="fas fa-home fa-fw mr-2"></i>Blog Home <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item <?php  if(substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1) == "blog-list.php") echo 'active'; ?>">
-					    <a class="nav-link" href="blog-list.php"><i class="fas fa-bookmark fa-fw mr-2"></i>Blog Posts</a>
+					    <a class="nav-link" href="#"><i class="fas fa-bookmark fa-fw mr-2"></i>Blog Posts</a>
 					</li>
 					<li class="nav-item <?php  if(substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1) == "about.php") echo 'active'; ?>">
 					    <a class="nav-link " href="about.php"><i class="fas fa-user fa-fw mr-2"></i>About Me</a>
@@ -85,9 +84,18 @@
 							<a class="nav-link" id='logoutLink' href="#" onclick="logout()" ><i class="fas fa-lock-open fa-fw mr-2"></i>Hello <?= $_SESSION['login'] ?>, Logout?</a>
 						</li>
 					<?php endif?>
+					<li class="nav-item d-lg-none mt-3">	
+						<div class="custom-control custom-switch">
+							<input type="checkbox" class="custom-control-input" id="darkSwitch2">
+							<label class="custom-control-label" for="darkSwitch2">Dark Mode</label>
+						</div>
+					</li>
+          		<script src="./assets/js/dark-mode-switch.min.js"></script>
+					
 				</ul>
 				
 				<div class="my-2 my-md-3 mx-auto my-auto d-inline-block">
+				
 				    <button type="button" class="btn btn-primary btn-lg h-100" onclick=<?php echo isset($_SESSION['login']) ? '"window.location.href=`newPost.php`" target="_blank">Upload a new post!' : '"window.location.href=`#`" >Connect to upload a new post!';?></button>
 				</div>
 			</div>
@@ -153,14 +161,14 @@
 			}
 		?></div>
 <div class="container text-center">
-			    <h2 class="heading">DevBlog - A Blog Template Made For Developers</h2>
-			    <div class="intro">Welcome to my blog. Subscribe and get my latest blog post in your inbox.</div>
-			    <form class="signup-form form-inline justify-content-center pt-3">
+			    <h2 class="heading">DevBlog - A Blog Made For Developers</h2>
+			    <div class="intro">Search for posts, authors, keywords or just a random post!</div>
+			    <form class="signup-form form-inline justify-content-center pt-3" method="GET" action="index.php">
                     <div class="form-group dark-mode">
-                        <label class="sr-only" for="semail">Your email</label>
-                        <input type="email" id="semail" name="semail1" class="form-control mr-md-1 semail" placeholder="Enter email">
+                        <label class="sr-only" for="query">Your query</label>
+                        <input type="text" id="query" name="query" class="form-control mr-md-1 semail" placeholder="<?= isset($_GET['query']) ? $_GET['query'] : 'Enter text..'?>">
                     </div>
-                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                    <button type="submit" class="btn btn-primary">Search</button>
 					
                 </form>
 </div><!--//container-->

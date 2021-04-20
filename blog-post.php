@@ -3,7 +3,9 @@
 	<?php include 'includes/getPosts.inc.php';
 				$Post = getSinglePost($_GET['id']);
 	?>
-    
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
     <div class="main-wrapper">
 	    
 	    <article class="blog-post px-3 py-5 p-md-5">
@@ -14,10 +16,6 @@
 			    </header>
 			    
 			    <div class="blog-post-body">
-				    <figure class="blog-banner">
-				        <a href="#"><img class="img-fluid" src="https://picsum.photos/1200/600" alt="image"></a>
-				        <figcaption class="mt-2 text-center image-caption">Image Credit: <a href="#" target="_blank">made4dev.com (Premium Programming T-shirts)</a></figcaption>
-				    </figure>
 					<p>
 						<?php echo $Post['content']; ?>
 					</p>

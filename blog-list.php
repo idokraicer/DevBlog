@@ -5,6 +5,7 @@
 				$Posts = postsArray();
 				$page = 0;
 				$invisible = "";
+				$first = true;
 				$last = false;
 				if(isset($_GET['page']))
 				{
@@ -18,18 +19,18 @@
 				{
 					$last=true;
 				} else $last = false;
-				if($page*8 > count($Posts)){
-					echo '<h1>No posts found!</h1>';
+				if($page*8 >= count($Posts)){
+					echo '<h1 class="title">No posts found!</h1>';
 				}
 				if($last) {
 					$invisible = "invisible";
 				}
 				for($i = count($Posts) - ($page * 8) -1 ; $i >= count($Posts) - 8 - ($page * 8) && $i >= 0; $i--): ?>
-				<?php if(($i % 2) == 1 ) {
+				<?php if($first) {
 					echo "<div class='row'>";
 				} 
 				?>
-			    <div class="item mb-5 col-6">
+			    <div class="item mb-5 col-sm">
 				    <div class="media">
 					    <a href="blog-post.php?id=<?= $Posts[$i]['id'] ?>"><img class="mr-3 img-fluid post-thumb d-none d-md-flex" src=<?php echo "'https://picsum.photos/300?random=".$i."'"; ?> alt="image"></a>
 					    <div class="media-body">
@@ -41,9 +42,11 @@
 				    </div><!--//media-->
 			    </div><!--//item-->
 				
-				<?php if(($i % 2) == 0 && $i != count($Posts)) {
+				<?php if(!$first || $last) {
 					echo "</div>";
-				} ?>
+				} 
+				$first = !$first;
+				?>
 				<?php endfor ?>
 			    
 			    

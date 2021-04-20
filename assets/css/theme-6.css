@@ -4825,7 +4825,6 @@ input[type="button"].btn-block {
     color: #767575;
     pointer-events: none;
     cursor: auto;
-    background-color: #fff;
     border-color: #a9a8a8
 }
 
@@ -10261,7 +10260,7 @@ body {
 }
 
 .config-panel {
-    position: absolute;
+    position: fixed;
     top: 50px;
     right: -190px;
     z-index: 30;

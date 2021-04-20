@@ -111,3 +111,7 @@ function logout() {
 
     window.location.replace('includes/logout.inc.php?back=' + window.location.pathname);
 }
+
+function changeTheme(color) {
+    document.cookie = "color=" + color + "; expires=" + Date.now() + 3600 + "; path=/";
+}

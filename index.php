@@ -1,6 +1,6 @@
     
     <?php include 'header.php'; ?>
-    <?php include 'blog-list.php' ?>
+    <?php include 'search.php' ?>
     
 		    
 	    </section>
